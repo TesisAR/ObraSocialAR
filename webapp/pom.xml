@@ -12,8 +12,8 @@
     <name>SimpleApp (JDO) - Webapp</name>
 
     <description>
-    	Assembles and runs both the Wicket viewer and the Restfulobjects viewer
-    	in a single webapp configured to run using the JDO/DataNucleus object store.
+        Assembles and runs both the Wicket viewer and the Restfulobjects viewer
+        in a single webapp configured to run using the JDO/DataNucleus object store.
     </description>
 
     <packaging>jar</packaging>
@@ -59,6 +59,13 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>simpleapp-jdo-module-simple</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.5</version>
         </dependency>
 
         <!-- isis -->
@@ -118,23 +125,6 @@
     <profiles>
 
         <profile>
-            <id>jdbc-sqlserver</id>
-            <activation>
-                <property>
-                    <name>spring.profiles.active</name>
-                    <value>SQLSERVER</value>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>com.microsoft.sqlserver</groupId>
-                    <artifactId>mssql-jdbc</artifactId>
-                    <version>7.4.1.jre8</version>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
             <id>jdbc-postgresql</id>
             <activation>
                 <property>
@@ -145,11 +135,28 @@
             <dependencies>
                 <dependency>
                     <groupId>org.postgresql</groupId>
-		    		<artifactId>postgresql</artifactId>
-					<!-- <version>42.2.12</version> ... version already managed -->
+                    <artifactId>postgresql</artifactId>
+                    <!-- <version>42.2.12</version> ... version already managed -->
                 </dependency>
             </dependencies>
         </profile>
+
+        <!-- <profile>
+             <id>jdbc-postgresql</id>
+             <activation>
+                 <property>
+                     <name>spring.profiles.active</name>
+                     <value>POSTGRESQL</value>
+                 </property>
+             </activation>
+             <dependencies>
+                 <dependency>
+                     <groupId>org.postgresql</groupId>
+                     <artifactId>postgresql</artifactId>
+                      <version>42.2.12</version> ... version already managed
+                 </dependency>
+             </dependencies>
+         </profile>-->
 
         <profile>
             <id>deploy-to-docker-io</id>

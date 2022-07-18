@@ -32,19 +32,21 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
 
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
-import domainapp.modules.simple.types.Apellido;
-import domainapp.modules.simple.types.Dni;
-import domainapp.modules.simple.types.FechaNacimiento;
-import domainapp.modules.simple.types.Edad;
-import domainapp.modules.simple.types.LugarNacimiento;
-import domainapp.modules.simple.types.Telefono;
-import domainapp.modules.simple.types.FechaInicio;
-import domainapp.modules.simple.types.Planes;
+import domainapp.modules.simple.types.afiliado.Name;
+import domainapp.modules.simple.types.afiliado.Notes;
+import domainapp.modules.simple.types.afiliado.Apellido;
+import domainapp.modules.simple.types.afiliado.Dni;
+import domainapp.modules.simple.types.afiliado.FechaNacimiento;
+import domainapp.modules.simple.types.afiliado.Edad;
+import domainapp.modules.simple.types.afiliado.LugarNacimiento;
+import domainapp.modules.simple.types.afiliado.Telefono;
+import domainapp.modules.simple.types.afiliado.FechaInicio;
+//import domainapp.modules.simple.types.afiliado.TipoPlan;
+
+
 
 @javax.jdo.annotations.PersistenceCapable(
-        schema = "afiliadoapp",
+        schema = "simple",// schema = "afiliado",
         identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Unique(
         name = "Afiliado_dni_UNQ", members = {"dni"}
@@ -59,29 +61,30 @@ import domainapp.modules.simple.types.Planes;
         @javax.jdo.annotations.Query(
                 name = Afiliado.NAMED_QUERY__FIND_BY_DNI_EXACT,
                 value = "SELECT " +
-                        "FROM domainapp.modules.simple.dom.so.SimpleObject " +
-                        "WHERE name == :name"
+                        "FROM domainapp.modules.simple.dom.afiliados.Afiliado " +
+                        "WHERE dni == :dni"
         )
 })
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
-@DomainObject(logicalTypeName = "afiliadoapp.Afiliado", entityChangePublishing = Publishing.ENABLED)
+@DomainObject(logicalTypeName = "simple.Afiliado", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
 public class Afiliado implements Comparable<Afiliado> {
 
-    static final String NAMED_QUERY__FIND_BY_DNI_LIKE = "Afiliado.findByNameLike";
-    static final String NAMED_QUERY__FIND_BY_DNI_EXACT = "Afiliado.findByNameExact";
+    static final String NAMED_QUERY__FIND_BY_DNI_LIKE = "Afiliado.findByDniLike";
+    static final String NAMED_QUERY__FIND_BY_DNI_EXACT = "Afiliado.findByDniExact";
 
     @Inject RepositoryService repositoryService;
     @Inject TitleService titleService;
     @Inject MessageService messageService;
 
+
     public static Afiliado withName(String name, String apellido, String dni, String edad,
                                     String fechaNacimiento, String lugarNacimiento, String telefono,
-                                    String fechaInicio, String planes) {
+                                    String fechaInicio/*, Plan plan*/) {
         val afiliado = new Afiliado();
         afiliado.setName(name);
         afiliado.setApellido(apellido);
@@ -91,9 +94,11 @@ public class Afiliado implements Comparable<Afiliado> {
         afiliado.setLugarNacimiento(lugarNacimiento);
         afiliado.setTelefono(telefono);
         afiliado.setFechaInicio(fechaInicio);
-        afiliado.setPlanes(planes);
+        //afiliado.setPlan(plan);
         return afiliado;
     }
+
+
 
 
     @Title
@@ -140,10 +145,10 @@ public class Afiliado implements Comparable<Afiliado> {
     private String fechaInicio;
 
 
-    @Planes
+    /*@TipoPlan
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "name", sequence = "9")
-    private String planes;
+    private TipoPlan tipoPlan plan;*/
 
 
 
@@ -172,8 +177,18 @@ public class Afiliado implements Comparable<Afiliado> {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' borrado", title));
         repositoryService.removeAndFlush(this);
-        return "Se borro el afiliado " + nombre;
+        return "Se borró el afiliado " + nombre;
     }
+    private final static Comparator<Afiliado> comparator =
+            Comparator.comparing(Afiliado::getName);
+
+    @Override
+    public int compareTo(final Afiliado other) {
+        return comparator.compare(this, other);
+    }
+
+}
+
 
   /*  public String default0UpdateName() {
         return getName();
@@ -200,12 +215,3 @@ public class Afiliado implements Comparable<Afiliado> {
 
 
 
-    private final static Comparator<Afiliado> comparator =
-            Comparator.comparing(Afiliado::getName);
-
-    @Override
-    public int compareTo(final Afiliado other) {
-        return comparator.compare(this, other);
-    }
-
-}

@@ -7,7 +7,7 @@ import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
 import domainapp.modules.simple.dom.afiliados.Afiliado;
 import domainapp.modules.simple.dom.afiliados.Afiliados;
-import domainapp.modules.simple.types.Dni;
+import domainapp.modules.simple.types.afiliado.Dni;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package domainapp.modules.simple.types;
+package domainapp.modules.simple.types.afiliado;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,20 +11,13 @@ import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 
-@Column(length = Planes.MAX_LEN, allowsNull = "false")
-@Property(maxLength = Planes.MAX_LEN)
-@Parameter(maxLength = Planes.MAX_LEN)
-@ParameterLayout(named = "Planes")
+@Column(length = FechaNacimiento.MAX_LEN, allowsNull = "false")
+@Property(maxLength = FechaNacimiento.MAX_LEN)
+@Parameter(maxLength = FechaNacimiento.MAX_LEN)
+@ParameterLayout(named = "FechaNacimiento")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Planes {
+public @interface FechaNacimiento {
 
-    int MAX_LEN = 40;
-
-    /*
-public enum Plan {
-    MIL,
-    TRESMIL,
-    CINCOMIL,
-}*/
+    int MAX_LEN = 10;
 }

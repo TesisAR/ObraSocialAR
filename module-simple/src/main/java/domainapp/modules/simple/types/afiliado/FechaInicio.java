@@ -1,4 +1,4 @@
-package domainapp.modules.simple.types;
+package domainapp.modules.simple.types.afiliado;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,13 +11,13 @@ import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 
-@Column(length = Name.MAX_LEN, allowsNull = "false")
-@Property(maxLength = Telefono.MAX_LEN)
-@Parameter(maxLength = Telefono.MAX_LEN)
-@ParameterLayout(named = "Telefono")
+@Column(length = FechaInicio.MAX_LEN, allowsNull = "false")
+@Property(maxLength = FechaInicio.MAX_LEN)
+@Parameter(maxLength = FechaInicio.MAX_LEN)
+@ParameterLayout(named = "FechaInicio")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Telefono {
+public @interface FechaInicio {
 
     int MAX_LEN = 40;
 }

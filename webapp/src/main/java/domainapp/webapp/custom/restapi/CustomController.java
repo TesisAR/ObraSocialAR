@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 
 import domainapp.modules.simple.dom.afiliados.Afiliado;
 import domainapp.modules.simple.dom.afiliados.Afiliados;
+
 @RestController
 @RequiredArgsConstructor(onConstructor_ = {@Inject})
 class CustomController {

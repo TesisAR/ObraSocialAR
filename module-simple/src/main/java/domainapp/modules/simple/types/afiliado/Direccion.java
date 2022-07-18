@@ -1,4 +1,4 @@
-package domainapp.modules.simple.types;
+package domainapp.modules.simple.types.afiliado;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,13 +11,13 @@ import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 
-@Column(length = Name.MAX_LEN, allowsNull = "false")
-@Property(maxLength = Name.MAX_LEN)
-@Parameter(maxLength = Name.MAX_LEN)
-@ParameterLayout(named = "Name")
+@Column(length = Direccion.MAX_LEN, allowsNull = "false")
+@Property(maxLength = Direccion.MAX_LEN)
+@Parameter(maxLength = Direccion.MAX_LEN)
+@ParameterLayout(named = "Direccion")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Name {
+public @interface Direccion {
 
     int MAX_LEN = 40;
 }

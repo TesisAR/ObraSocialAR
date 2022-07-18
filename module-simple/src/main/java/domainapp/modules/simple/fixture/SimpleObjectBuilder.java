@@ -37,8 +37,8 @@ public class SimpleObjectBuilder extends BuilderScriptWithResult<Afiliado> {
     @Getter @Setter
     private String fechaInicio;
 
-    @Getter @Setter
-    private String plan;
+   /* @Getter @Setter
+    private TipoPlan tipoPlan;*/
 
 
 
@@ -53,12 +53,12 @@ public class SimpleObjectBuilder extends BuilderScriptWithResult<Afiliado> {
         checkParam("lugarNacimiento", ec, String.class);
         checkParam("telefono", ec, String.class);
         checkParam("fechaInicio", ec, String.class);
-        checkParam("plan", ec, String.class);
+        //checkParam("tipoPlan", ec, String.class);
 
         return wrap(afiliados).create
                 (dni, apellido, name, edad,
                         fechaNacimiento, lugarNacimiento, telefono,
-                        fechaInicio, plan);
+                        fechaInicio/*, tipoPlan*/);
     }
 
     // -- DEPENDENCIES

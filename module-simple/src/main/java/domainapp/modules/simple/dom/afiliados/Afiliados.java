@@ -18,19 +18,20 @@ import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Apellido;
-import domainapp.modules.simple.types.Dni;
-import domainapp.modules.simple.types.Edad;
-import domainapp.modules.simple.types.FechaNacimiento;
-import domainapp.modules.simple.types.LugarNacimiento;
-import domainapp.modules.simple.types.Telefono;
-import domainapp.modules.simple.types.FechaInicio;
-import domainapp.modules.simple.types.Planes;
+import domainapp.modules.simple.types.afiliado.Name;
+import domainapp.modules.simple.types.afiliado.Notes;
+import domainapp.modules.simple.types.afiliado.Apellido;
+import domainapp.modules.simple.types.afiliado.Dni;
+import domainapp.modules.simple.types.afiliado.FechaNacimiento;
+import domainapp.modules.simple.types.afiliado.Edad;
+import domainapp.modules.simple.types.afiliado.LugarNacimiento;
+import domainapp.modules.simple.types.afiliado.Telefono;
+import domainapp.modules.simple.types.afiliado.FechaInicio;
+//import domainapp.modules.simple.types.afiliado.TipoPlan;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        logicalTypeName = "simple.Afiliado"
+        logicalTypeName = "simple.Afiliados"
 )
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
@@ -50,11 +51,11 @@ public class Afiliados {
             @FechaNacimiento final String fechaNacimiento,
             @LugarNacimiento final String lugarNacimiento,
             @Telefono final String telefono,
-            @FechaInicio final String fechaInicio,
-            @Planes final String planes) {
+            @FechaInicio final String fechaInicio/*,
+            @Plan final Plan plan*/) {
         return repositoryService.persist(Afiliado.withName
                 (name, apellido, dni, edad, fechaNacimiento,
-                        lugarNacimiento, telefono, fechaInicio, planes));
+                 lugarNacimiento, telefono, fechaInicio/*, plan*/));
     }
 
 
