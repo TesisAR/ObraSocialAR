@@ -17,8 +17,8 @@ import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 
 import lombok.RequiredArgsConstructor;
 
-import domainapp.modules.simple.dom.afiliados.Afiliado;
-import domainapp.modules.simple.dom.afiliados.Afiliados;
+import domainapp.modules.simple.dom.afiliado.Afiliado;
+import domainapp.modules.simple.dom.afiliado.Afiliados;
 
 @RestController
 @RequiredArgsConstructor(onConstructor_ = {@Inject})

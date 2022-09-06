@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.afiliados;
+package domainapp.modules.simple.dom.afiliado;
 
 import java.util.Comparator;
 
@@ -189,13 +189,13 @@ public class Afiliado implements Comparable<Afiliado> {
             position = ActionLayout.Position.PANEL,
             describedAs = "Borra afiliado.")
     public void borrar() {
-        //int identify = this.getDni();
+        int identify = this.getDni();
 
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' borrado", title));
         repositoryService.removeAndFlush(this);
 
-        /*final String title = titleService.titleOf(this);
+       /* final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' borrado", title));
         repositoryService.removeAndFlush(this);
         return "Se borró el afiliado con Dni: " + identify;*/

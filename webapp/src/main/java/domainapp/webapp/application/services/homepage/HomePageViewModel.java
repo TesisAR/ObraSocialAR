@@ -9,8 +9,8 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.HomePage;
 import org.apache.isis.applib.annotation.Nature;
 
-import domainapp.modules.simple.dom.afiliados.Afiliado;
-import domainapp.modules.simple.dom.afiliados.Afiliados;
+import domainapp.modules.simple.dom.afiliado.Afiliado;
+import domainapp.modules.simple.dom.afiliado.Afiliados;
 /*import domainapp.modules.simple.dom.planes.Plan;
 import domainapp.modules.simple.dom.planes.Planes;
 import domainapp.modules.simple.dom.facturas.Factura;

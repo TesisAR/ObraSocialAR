@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.afiliados;
+package domainapp.modules.simple.dom.afiliado;
 
 import java.util.List;
 
@@ -86,16 +86,21 @@ public class Afiliados {
     public List<Afiliado> listAll() {
         return repositoryService.allInstances(Afiliado.class);
     }
+/*
+    public void ping() {
+        JDOQLTypedQuery<Afiliado> q = jdoSupportService.newTypesafeQuery(Afiliado.class);
+
+    }
 
 
-    @Programmatic
+   @Programmatic
     public void ping() {
         JDOQLTypedQuery<Afiliado> q = jdoSupportService.newTypesafeQuery(Afiliado.class);
         final QAfiliado candidate = QAfiliado.candidate();
         q.range(0,2);
-        q.orderBy(candidate.dni.asc());
+        q.orderBy(candidate.name.asc());
         q.executeList();
-    }
+    }*/
 
 
 }

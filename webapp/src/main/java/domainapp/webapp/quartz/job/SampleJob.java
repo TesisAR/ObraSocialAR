@@ -20,8 +20,8 @@ import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-import domainapp.modules.simple.dom.afiliados.Afiliado;
-import domainapp.modules.simple.dom.afiliados.Afiliados;
+import domainapp.modules.simple.dom.afiliado.Afiliado;
+import domainapp.modules.simple.dom.afiliado.Afiliados;
 
 @Component
 @RequiredArgsConstructor(onConstructor_ = {@Inject})

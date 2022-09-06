@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
 
-import domainapp.modules.simple.dom.afiliados.Afiliados;
+import domainapp.modules.simple.dom.afiliado.Afiliados;
 
 @Service
 @Named("domainapp.HealthCheckServiceImpl")
@@ -24,7 +24,7 @@ public class HealthCheckServiceImpl implements HealthCheckService {
     @Override
     public Health check() {
         try {
-            afiliados.ping();
+           // afiliados.ping();
             return Health.ok();
         } catch (Exception ex) {
             return Health.error(ex);

@@ -2,7 +2,7 @@
 <mb3:menuBars xsi:schemaLocation="http://isis.apache.org/applib/layout/menubars/bootstrap3 http://isis.apache.org/applib/layout/menubars/bootstrap3/menubars.xsd http://isis.apache.org/applib/layout/component http://isis.apache.org/applib/layout/component/component.xsd http://isis.apache.org/applib/layout/links http://isis.apache.org/applib/layout/links/links.xsd" xmlns:cpt="http://isis.apache.org/applib/layout/component" xmlns:lnk="http://isis.apache.org/applib/layout/links" xmlns:mb3="http://isis.apache.org/applib/layout/menubars/bootstrap3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <mb3:primary>
 
-        <mb3:menu>
+       <!-- <mb3:menu>
             <mb3:named>Simple Objects</mb3:named>
             <mb3:section>
                 <mb3:serviceAction objectType="simple.SimpleObjects" id="create"/>
@@ -12,7 +12,7 @@
         </mb3:menu>
         <mb3:menu unreferencedActions="true">
             <mb3:named>Other</mb3:named>
-        </mb3:menu>
+        </mb3:menu>     -->
 
         <mb3:menu unreferencedActions="true">
             <mb3:named>Afiliados</mb3:named>
@@ -23,8 +23,26 @@
             </mb3:section>
         </mb3:menu>
 
+        <mb3:menu unreferencedActions="true">
+            <mb3:named>Planes</mb3:named>
+            <mb3:section>
+                <mb3:serviceAction objectType="plan.Plan" id="create"/>
+                <mb3:serviceAction objectType="plan.Plan" id="findByName"/>
+                <mb3:serviceAction objectType="plan.Plan" id="listAll"/>
+            </mb3:section>
+        </mb3:menu>
 
-    <!--ACA VAN LUEGO PLANES, FACTURAS, ETC Y SE AGREGAN SIGUIENDO EL MISMO FORMATO <mb3:menu   y cierra </mbr:nemu>-->
+        <mb3:menu unreferencedActions="true">
+            <mb3:named>Facturas</mb3:named>
+            <mb3:section>
+                <mb3:serviceAction objectType="factura.Factura" id="create"/>
+                <mb3:serviceAction objectType="factura.Factura" id="findByName"/>
+                <mb3:serviceAction objectType="factura.Factura" id="listAll"/>
+            </mb3:section>
+        </mb3:menu>
+
+
+    <!--ACA ARRIBA DE ESTA LINEA VAN LUEGO PLANES, FACTURAS, ETC Y SE AGREGAN SIGUIENDO EL MISMO FORMATO <mb3:menu   y cierra </mbr:nemu>-->
 
 
     </mb3:primary>

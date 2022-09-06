@@ -1,4 +1,4 @@
-package domainapp.modules.simple.types.afiliado;
+package domainapp.modules.simple.types.factura;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,10 +12,10 @@ import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 
 
-@ParameterLayout(named = "Edad")
+@ParameterLayout(named = "Monto")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Edad {
+public @interface Monto {
 
 
 }
