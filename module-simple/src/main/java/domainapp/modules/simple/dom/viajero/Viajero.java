@@ -4,6 +4,8 @@ import domainapp.modules.simple.types.viajero.Lugar;
 import domainapp.modules.simple.types.viajero.FechaViaje;
 import domainapp.modules.simple.types.viajero.EstadoViajero;
 
+import java.util.Date;
+
 
 import lombok.*;
 import org.apache.isis.applib.annotation.*;
@@ -60,7 +62,7 @@ public class Viajero implements Comparable<Viajero> {
     @javax.persistence.Column(name = "id", nullable = false)
     private Long id;*/
 
-    public static Viajero withName(String fechaViaje, String lugar, EstadoViajero estadoViajero)
+    public static Viajero withName(Date fechaViaje, String lugar, EstadoViajero estadoViajero)
                                     {
         val viajero = new Viajero();
         viajero.setFechaViaje(fechaViaje);
@@ -80,10 +82,9 @@ public class Viajero implements Comparable<Viajero> {
 
 
     @Title
-    @FechaViaje
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "viajeros", sequence = "1")
-    private String fechaViaje;
+    private Date fechaViaje;
 
     @Lugar
     @Getter @Setter @ToString.Include
@@ -138,7 +139,7 @@ public class Viajero implements Comparable<Viajero> {
        /* final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' borrado", title));
         repositoryService.removeAndFlush(this);
-        return "Se borró el viajero con Dni: " + identify;*/
+        return "Se borró el viajero con Nombre: " + identify;*/
     }
     private final static Comparator<Viajero> comparator =
             Comparator.comparing(Viajero::getLugar);

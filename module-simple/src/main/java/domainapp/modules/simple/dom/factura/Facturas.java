@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.jdo.JDOQLTypedQuery;
 
+import java.util.Date;
+
 import domainapp.modules.simple.types.factura.*;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -36,9 +38,9 @@ public class Facturas {
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public Factura create(
-            @FechaFactura final String fechaFactura,
-            @FechaVencimiento final String fechaVencimiento,
-            @FechaPeriodo final String fechaPeriodo,
+            final Date fechaFactura,
+            final Date fechaVencimiento,
+            final Date fechaPeriodo,
             final float monto,
             final int nro
             //final Factura facturas

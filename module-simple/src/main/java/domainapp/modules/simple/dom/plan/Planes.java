@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.jdo.JDOQLTypedQuery;
+import java.util.Date;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -41,10 +42,10 @@ public class Planes<plan> {
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public Plan create(
             @NombrePlan final String nombrePlan,
-            @TipoCobertura final String tipoCobertura,
+            final TipoCobertura tipoCobertura,
             final float monto,
-            @FechaVencimiento final String fechaVencimiento,
-            @FechaCobro final String fechaCobro
+            final Date fechaVencimiento,
+            final Date fechaCobro
             //final Plan plan
             ) {
         return repositoryService.persist(Plan.withName(nombrePlan, tipoCobertura,

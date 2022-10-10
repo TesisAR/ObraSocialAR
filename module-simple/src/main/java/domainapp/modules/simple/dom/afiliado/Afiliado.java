@@ -1,6 +1,7 @@
 package domainapp.modules.simple.dom.afiliado;
 
 import java.util.Comparator;
+import java.util.Date;
 
 import javax.inject.Inject;
 import javax.jdo.annotations.IdGeneratorStrategy;
@@ -35,6 +36,7 @@ import lombok.ToString;
 import lombok.val;
 
 import domainapp.modules.simple.types.afiliado.Name;
+import domainapp.modules.simple.types.afiliado.Tipo;
 //import domainapp.modules.simple.types.afiliado.Notes;
 import domainapp.modules.simple.types.afiliado.Apellido;
 import domainapp.modules.simple.types.afiliado.Dni;
@@ -77,8 +79,8 @@ import domainapp.modules.simple.types.afiliado.FechaInicio;
 public class Afiliado implements Comparable<Afiliado> {
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "Afiliado.findByNameLike";
-   // static final String NAMED_QUERY__FIND_BY_DNI_EXACT = "Afiliado.findByDniExact";
-   static final String NAMED_QUERY__FIND_BY_NAME_EXACT = "Afiliado.findByNameExact";
+    // static final String NAMED_QUERY__FIND_BY_DNI_EXACT = "Afiliado.findByDniExact";
+    static final String NAMED_QUERY__FIND_BY_NAME_EXACT = "Afiliado.findByNameExact";
 
     @javax.persistence.Id
     @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
@@ -86,8 +88,8 @@ public class Afiliado implements Comparable<Afiliado> {
     private Long id;
 
     public static Afiliado withName(String name, String apellido, int dni, int edad,
-                                    String fechaNacimiento, String lugarNacimiento, int telefono,
-                                    String fechaInicio/*, Plan plan*/) {
+                                    Date fechaNacimiento, String lugarNacimiento, int telefono,
+                                    Date fechaInicio, Tipo tipo/*, Plan plan*/) {
         val afiliado = new Afiliado();
         afiliado.setName(name);
         afiliado.setApellido(apellido);
@@ -97,6 +99,7 @@ public class Afiliado implements Comparable<Afiliado> {
         afiliado.setLugarNacimiento(lugarNacimiento);
         afiliado.setTelefono(telefono);
         afiliado.setFechaInicio(fechaInicio);
+        afiliado.setTipo(tipo);
         return afiliado;
     }
 
@@ -120,7 +123,7 @@ public class Afiliado implements Comparable<Afiliado> {
     @PropertyLayout(fieldSetId = "afiliados", sequence = "2")
     private String apellido;
 
-    //@Dni
+    //@Nombre
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "afiliados", sequence = "3")
     private int dni;
@@ -133,12 +136,12 @@ public class Afiliado implements Comparable<Afiliado> {
 
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "afiliados", sequence = "5  ")
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
 
 
 
     @LugarNacimiento
-    //@javax.persistence.Column(length = LugarNacimiento.MAX_LEN, nullable = false)
+    //@javax.persistence.Column(length = Informacion.MAX_LEN, nullable = false)
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "afiliados", sequence = "6")
     private String lugarNacimiento;
@@ -151,7 +154,11 @@ public class Afiliado implements Comparable<Afiliado> {
 
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "afiliados", sequence = "8")
-    private String fechaInicio;
+    private Date fechaInicio;
+
+    @Getter @Setter @ToString.Include
+    @PropertyLayout(fieldSetId = "afiliados", sequence = "9")
+    private Tipo tipo;
 
 
 
@@ -198,7 +205,7 @@ public class Afiliado implements Comparable<Afiliado> {
        /* final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' borrado", title));
         repositoryService.removeAndFlush(this);
-        return "Se borró el afiliado con Dni: " + identify;*/
+        return "Se borró el afiliado con Nombre: " + identify;*/
     }
     private final static Comparator<Afiliado> comparator =
             Comparator.comparing(Afiliado::getName);
@@ -209,5 +216,8 @@ public class Afiliado implements Comparable<Afiliado> {
     }
 
 }
+
+
+
 
 

@@ -1,6 +1,6 @@
 package domainapp.modules.simple.dom.viajero;
 
-
+import java.util.Date;
 import domainapp.modules.simple.types.viajero.EstadoViajero;
 import domainapp.modules.simple.types.viajero.FechaViaje;
 import domainapp.modules.simple.types.viajero.Lugar;
@@ -28,7 +28,7 @@ public class Viajeros {
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public Viajero create(
-            @FechaViaje final String fechaViaje,
+            final Date fechaViaje,
             @Lugar final String lugar,
             final EstadoViajero estadoViajero
     ) {
@@ -65,14 +65,14 @@ public class Viajeros {
     }
 /*
     public void ping() {
-        JDOQLTypedQuery<Afiliado> q = jdoSupportService.newTypesafeQuery(Afiliado.class);
+        JDOQLTypedQuery<Credencialxzc> q = jdoSupportService.newTypesafeQuery(Credencialxzc.class);
 
     }
 
 
    @Programmatic
     public void ping() {
-        JDOQLTypedQuery<Afiliado> q = jdoSupportService.newTypesafeQuery(Afiliado.class);
+        JDOQLTypedQuery<Credencialxzc> q = jdoSupportService.newTypesafeQuery(Credencialxzc.class);
         final QAfiliado candidate = QAfiliado.candidate();
         q.range(0,2);
         q.orderBy(candidate.name.asc());

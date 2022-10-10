@@ -3,6 +3,8 @@ package domainapp.modules.simple.dom.factura;
 
 import java.util.Comparator;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -76,7 +78,7 @@ public class Factura implements Comparable<Factura> {
     @Inject MessageService messageService;
 
 
-    public static Factura withName(float monto, String fechaFactura, String fechaPeriodo, String fechaVencimiento, int nro) {
+    public static Factura withName(float monto, Date fechaFactura, Date fechaPeriodo, Date fechaVencimiento, int nro) {
         val factura = new Factura();
       //  factura.setFactura(factura);
         factura.setMonto(monto);
@@ -104,20 +106,20 @@ public class Factura implements Comparable<Factura> {
     @PropertyLayout(fieldSetId = "facturas", sequence = "2")
     private float monto;
 
-    @FechaFactura
+
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "facturas", sequence = "3")
-    private String fechaFactura;
+    private Date fechaFactura;
 
-    @FechaPeriodo
+
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "facturas", sequence = "4")
-    private String fechaPeriodo;
+    private Date fechaPeriodo;
 
-    @FechaVencimiento
+
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "facturas", sequence = "5  ")
-    private String fechaVencimiento;
+    private Date fechaVencimiento;
 
 
 

@@ -12,7 +12,7 @@ import org.apache.isis.applib.annotation.ParameterLayout;
 import org.apache.isis.applib.annotation.Property;
 
 @Column(allowsNull = "false")
-@ParameterLayout(named = "Dni")
+@ParameterLayout(named = "Nombre")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Dni {

@@ -1,6 +1,7 @@
 package domainapp.modules.simple.dom.plan;
 
 import java.util.Comparator;
+import java.util.Date;
 
 import javax.inject.Inject;
 import javax.jdo.annotations.IdGeneratorStrategy;
@@ -64,9 +65,9 @@ public class Plan implements Comparable<Plan> {
     @Inject TitleService titleService;
     @Inject MessageService messageService;
 
-    public static Plan withName(String nombrePlan, String tipoCobertura,
-                                float monto, String fechaVencimiento,
-                                String fechaCobro) {
+    public static Plan withName(String nombrePlan, TipoCobertura tipoCobertura,
+                                float monto, Date fechaVencimiento,
+                                Date fechaCobro) {
         val plan = new Plan();
         plan.setNombrePlan(nombrePlan);
         plan.setTipoCobertura(tipoCobertura);
@@ -84,25 +85,25 @@ public class Plan implements Comparable<Plan> {
     private String nombrePlan;
 
 
-    @TipoCobertura
+  //  @TipoCobertura
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "planes", sequence = "2")
-    private String tipoCobertura;
+    private TipoCobertura tipoCobertura;
 
     //@Monto
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "planes", sequence = "3")
     private float monto;
 
-    @FechaVencimiento
+
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "planes", sequence = "4")
-    private String fechaVencimiento;
+    private Date fechaVencimiento;
 
-    @FechaCobro
+
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "planes", sequence = "5")
-    private String fechaCobro;
+    private Date fechaCobro;
 
 
     /*@Getter @Setter

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.jdo.JDOQLTypedQuery;
 
+import java.util.Date;
+
 //import domainapp.modules.simple.dom.planes.Plan;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
@@ -21,6 +23,7 @@ import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
 import domainapp.modules.simple.types.afiliado.Name;
 import domainapp.modules.simple.types.afiliado.Apellido;
+import domainapp.modules.simple.types.afiliado.Tipo;
 import domainapp.modules.simple.types.afiliado.Dni;
 import domainapp.modules.simple.types.afiliado.FechaNacimiento;
 import domainapp.modules.simple.types.afiliado.Edad;
@@ -48,15 +51,16 @@ public class Afiliados {
             @Apellido final String apellido,
             final int dni,
             final int edad,
-            @FechaNacimiento final String fechaNacimiento,
+            final Date fechaNacimiento,
             @LugarNacimiento final String lugarNacimiento,
             final int telefono,
-            @FechaInicio final String fechaInicio
-          //  final Plan plan
+            final Date fechaInicio,
+            final Tipo tipo
+            //  final Plan plan
     ) {
         return repositoryService.persist(Afiliado.withName
                 (name, apellido, dni, edad, fechaNacimiento,
-                 lugarNacimiento, telefono, fechaInicio));
+                        lugarNacimiento, telefono, fechaInicio, tipo));
     }
 
 
@@ -88,14 +92,14 @@ public class Afiliados {
     }
 /*
     public void ping() {
-        JDOQLTypedQuery<Afiliado> q = jdoSupportService.newTypesafeQuery(Afiliado.class);
+        JDOQLTypedQuery<Credencialxzc> q = jdoSupportService.newTypesafeQuery(Credencialxzc.class);
 
     }
 
 
    @Programmatic
     public void ping() {
-        JDOQLTypedQuery<Afiliado> q = jdoSupportService.newTypesafeQuery(Afiliado.class);
+        JDOQLTypedQuery<Credencialxzc> q = jdoSupportService.newTypesafeQuery(Credencialxzc.class);
         final QAfiliado candidate = QAfiliado.candidate();
         q.range(0,2);
         q.orderBy(candidate.name.asc());
@@ -104,3 +108,7 @@ public class Afiliados {
 
 
 }
+
+
+
+
