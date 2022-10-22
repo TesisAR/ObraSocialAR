@@ -1,17 +1,20 @@
 package domainapp.modules.simple.fixture;
 
+import domainapp.modules.simple.dom.afiliado.Afiliado;
 import org.apache.isis.applib.services.registry.ServiceRegistry;
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithBuilderScript;
 import org.apache.isis.testing.fixtures.applib.personas.PersonaWithFinder;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
-import domainapp.modules.simple.dom.so.SimpleObject;
-import domainapp.modules.simple.dom.so.SimpleObjects;
+
+
+import domainapp.modules.simple.dom.afiliado.Afiliado;
+import domainapp.modules.simple.dom.afiliado.Afiliados;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum SimpleObject_persona
-implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<SimpleObject> {
+implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Afiliado> {
 
     FOO("Foo"),
     BAR("Bar"),
@@ -32,13 +35,13 @@ implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Simp
     }
 
     @Override
-    public SimpleObject findUsing(final ServiceRegistry serviceRegistry) {
-        SimpleObjects simpleObjects = serviceRegistry.lookupService(SimpleObjects.class).orElse(null);
-        return simpleObjects.findByNameExact(name);
+    public Afiliado findUsing(final ServiceRegistry serviceRegistry) {
+        Afiliados afiliados = serviceRegistry.lookupService(Afiliados.class).orElse(null);
+        return afiliados.findByNameExact(name);
     }
 
     public static class PersistAll
-    extends PersonaEnumPersistAll<SimpleObject_persona, SimpleObject> {
+    extends PersonaEnumPersistAll<SimpleObject_persona, Afiliado> {
 
         public PersistAll() {
             super(SimpleObject_persona.class);
