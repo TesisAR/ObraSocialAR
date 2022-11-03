@@ -20,7 +20,11 @@
         <bs3:col span="6" unreferencedCollections="true">
             <bs3:row>
                 <bs3:col span="12">
+<<<<<<< HEAD
                     <collection id="objects" defaultView="table"/>
+=======
+                    <collection id="afiliados" defaultView="table"/>
+>>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
                 </bs3:col>
             </bs3:row>
         </bs3:col>
