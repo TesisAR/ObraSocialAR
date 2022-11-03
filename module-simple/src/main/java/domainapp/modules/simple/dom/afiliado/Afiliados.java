@@ -23,7 +23,7 @@ import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
 import domainapp.modules.simple.types.afiliado.Name;
 import domainapp.modules.simple.types.afiliado.Apellido;
-import domainapp.modules.simple.types.afiliado.Tipo;
+import domainapp.modules.simple.types.afiliado.TipoAfiliado;
 import domainapp.modules.simple.types.afiliado.Dni;
 import domainapp.modules.simple.types.afiliado.FechaNacimiento;
 import domainapp.modules.simple.types.afiliado.Edad;
@@ -55,12 +55,12 @@ public class Afiliados {
             @LugarNacimiento final String lugarNacimiento,
             final int telefono,
             final Date fechaInicio,
-            final Tipo tipo
+            final TipoAfiliado tipoAfiliado
             //  final Plan plan
     ) {
         return repositoryService.persist(Afiliado.withName
                 (name, apellido, dni, edad, fechaNacimiento,
-                        lugarNacimiento, telefono, fechaInicio, tipo));
+                        lugarNacimiento, telefono, fechaInicio, tipoAfiliado));
     }
 
 
@@ -85,11 +85,14 @@ public class Afiliados {
                 .orElse(null);
     }
 
-    @Action(semantics = SemanticsOf.SAFE)
+    @Action(semantics = SemanticsOf.SAFE
+    )
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<Afiliado> listAll() {
         return repositoryService.allInstances(Afiliado.class);
     }
+
+
 /*
     public void ping() {
         JDOQLTypedQuery<Credencialxzc> q = jdoSupportService.newTypesafeQuery(Credencialxzc.class);

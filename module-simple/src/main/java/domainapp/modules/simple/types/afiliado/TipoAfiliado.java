@@ -1,5 +1,5 @@
 package domainapp.modules.simple.types.afiliado;
 
-public enum Tipo {
+public enum TipoAfiliado {
     TITULAR, ADHERENTE
 }

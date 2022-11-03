@@ -10,12 +10,12 @@ import javax.jdo.annotations.VersionStrategy;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 //import domainapp.modules.simple.dom.planes.Plan;
+import domainapp.modules.simple.types.afiliado.*;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.PromptStyle;
-import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.Title;
@@ -35,16 +35,9 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
 
-import domainapp.modules.simple.types.afiliado.Name;
-import domainapp.modules.simple.types.afiliado.Tipo;
+import domainapp.modules.simple.types.afiliado.TipoAfiliado;
 //import domainapp.modules.simple.types.afiliado.Notes;
-import domainapp.modules.simple.types.afiliado.Apellido;
-import domainapp.modules.simple.types.afiliado.Dni;
-import domainapp.modules.simple.types.afiliado.FechaNacimiento;
-import domainapp.modules.simple.types.afiliado.Edad;
-import domainapp.modules.simple.types.afiliado.LugarNacimiento;
-import domainapp.modules.simple.types.afiliado.Telefono;
-import domainapp.modules.simple.types.afiliado.FechaInicio;
+
 //import domainapp.modules.simple.types.afiliado.TipoPlan;
 
 
@@ -89,7 +82,7 @@ public class Afiliado implements Comparable<Afiliado> {
 
     public static Afiliado withName(String name, String apellido, int dni, int edad,
                                     Date fechaNacimiento, String lugarNacimiento, int telefono,
-                                    Date fechaInicio, Tipo tipo/*, Plan plan*/) {
+                                    Date fechaInicio, TipoAfiliado tipoAfiliado/*, Plan plan*/) {
         val afiliado = new Afiliado();
         afiliado.setName(name);
         afiliado.setApellido(apellido);
@@ -99,7 +92,7 @@ public class Afiliado implements Comparable<Afiliado> {
         afiliado.setLugarNacimiento(lugarNacimiento);
         afiliado.setTelefono(telefono);
         afiliado.setFechaInicio(fechaInicio);
-        afiliado.setTipo(tipo);
+        afiliado.setTipoAfiliado(tipoAfiliado);
         return afiliado;
     }
 
@@ -158,7 +151,7 @@ public class Afiliado implements Comparable<Afiliado> {
 
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = "afiliados", sequence = "9")
-    private Tipo tipo;
+    private TipoAfiliado tipoAfiliado;
 
 
 

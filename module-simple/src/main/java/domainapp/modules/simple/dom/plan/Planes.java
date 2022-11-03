@@ -42,14 +42,14 @@ public class Planes<plan> {
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public Plan create(
             @NombrePlan final String nombrePlan,
-            final TipoCobertura tipoCobertura,
             final float monto,
             final Date fechaVencimiento,
-            final Date fechaCobro
-            //final Plan plan
+            final Date fechaCobro,
+            final TipoCobertura tipoCobertura
+
             ) {
-        return repositoryService.persist(Plan.withName(nombrePlan, tipoCobertura,
-                monto, fechaVencimiento, fechaCobro//, plan
+        return repositoryService.persist(Plan.withName(nombrePlan,
+                monto, fechaVencimiento, fechaCobro,  tipoCobertura//, plan
         ));
     }
 

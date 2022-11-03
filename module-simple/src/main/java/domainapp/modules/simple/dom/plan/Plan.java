@@ -65,15 +65,15 @@ public class Plan implements Comparable<Plan> {
     @Inject TitleService titleService;
     @Inject MessageService messageService;
 
-    public static Plan withName(String nombrePlan, TipoCobertura tipoCobertura,
+    public static Plan withName(String nombrePlan,
                                 float monto, Date fechaVencimiento,
-                                Date fechaCobro) {
+                                Date fechaCobro, TipoCobertura tipoCobertura) {
         val plan = new Plan();
         plan.setNombrePlan(nombrePlan);
-        plan.setTipoCobertura(tipoCobertura);
         plan.setMonto(monto);
         plan.setFechaVencimiento(fechaVencimiento);
         plan.setFechaCobro(fechaCobro);
+        plan.setTipoCobertura(tipoCobertura);
         return plan;
     }
 
@@ -85,25 +85,27 @@ public class Plan implements Comparable<Plan> {
     private String nombrePlan;
 
 
-  //  @TipoCobertura
-    @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "planes", sequence = "2")
-    private TipoCobertura tipoCobertura;
+
 
     //@Monto
     @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "planes", sequence = "3")
+    @PropertyLayout(fieldSetId = "planes", sequence = "2")
     private float monto;
 
 
     @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "planes", sequence = "4")
+    @PropertyLayout(fieldSetId = "planes", sequence = "3")
     private Date fechaVencimiento;
 
 
     @Getter @Setter @ToString.Include
-    @PropertyLayout(fieldSetId = "planes", sequence = "5")
+    @PropertyLayout(fieldSetId = "planes", sequence = "4")
     private Date fechaCobro;
+
+    // @TipoCobertura
+    @Getter @Setter @ToString.Include
+    @PropertyLayout(fieldSetId = "planes", sequence = "5")
+    private TipoCobertura tipoCobertura;
 
 
     /*@Getter @Setter
