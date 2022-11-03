@@ -70,7 +70,7 @@ import domainapp.modules.simple.types.afiliado.FechaInicio;
 })
 
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
-//@javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
+@javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
 @DomainObject(logicalTypeName = "afiliado.Afiliado", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
