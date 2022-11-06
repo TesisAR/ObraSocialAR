@@ -27,22 +27,19 @@
     <dependencyManagement>
         <dependencies>
 
-<<<<<<< HEAD
-=======
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>42.3.5</version>
             </dependency>
 
->>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
             <!-- this project's own modules -->
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>simpleapp-jdo-module-simple</artifactId>
                 <version>${project.version}</version>
             </dependency>
-<<<<<<< HEAD
+
            <!-- <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>simpleapp-jdo-module-simple-tests</artifactId>
@@ -50,15 +47,13 @@
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>-->
-=======
 
->>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>simpleapp-jdo-webapp</artifactId>
                 <version>${project.version}</version>
             </dependency>
-<<<<<<< HEAD
+
             <!--<dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>simpleapp-jdo-webapp-tests</artifactId>
@@ -66,9 +61,7 @@
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>-->
-=======
 
->>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
 
         </dependencies>
     </dependencyManagement>
@@ -83,15 +76,15 @@
 
     <modules>
         <module>module-simple</module>
-<<<<<<< HEAD
+
         <!--<module>module-simple-tests</module>-->
         <module>webapp</module>
         <!--<module>webapp-tests</module>-->
-=======
+
 
         <module>webapp</module>
 
->>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
+
     </modules>
 
     <profiles>

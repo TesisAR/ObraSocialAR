@@ -31,7 +31,7 @@ import domainapp.modules.simple.dom.facturas.Facturas;*/
 public class HomePageViewModel {
 
     public String title() {
-<<<<<<< HEAD
+
         return getObjects().size() + " objects";
     }
 
@@ -40,7 +40,7 @@ public class HomePageViewModel {
     }
 
     @Inject SimpleObjects simpleObjects;
-=======
+
         return getObjects().size() + " afiliados";
     }
 
@@ -49,5 +49,5 @@ public class HomePageViewModel {
     }
 
     @Inject Afiliados afiliados;
->>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
+
 }
