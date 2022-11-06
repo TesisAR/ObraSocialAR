@@ -27,7 +27,7 @@ import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_Y
         identityType=IdentityType.DATASTORE)
 
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
-@javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
+//@javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
 @DomainObject(logicalTypeName = "credencial.Credencialxzc", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -40,10 +40,10 @@ public class Credencial implements Comparable<Credencial> {
     static final String NAMED_QUERY__FIND_BY_NAME_EXACT = "Credencial.findByNameExact";
 
 
-//    @javax.persistence.Id
-//    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
-//    @javax.persistence.Column(name = "id", nullable = false)
-//    private Long id;
+    @javax.persistence.Id
+    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
+    @javax.persistence.Column(name = "id", nullable = false)
+    private Long id;
 
     public static Credencial withName(String nombre, String apellido, Date fechaEmision,
                                          Date fechaExpiracion, TipoCobertura tipoCobertura,
