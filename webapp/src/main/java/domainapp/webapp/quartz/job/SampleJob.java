@@ -20,13 +20,13 @@ import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-<<<<<<< HEAD
+
 import domainapp.modules.simple.dom.afiliados.SimpleObject;
 import domainapp.modules.simple.dom.afiliados.SimpleObjects;
-=======
+
 import domainapp.modules.simple.dom.afiliado.Afiliado;
 import domainapp.modules.simple.dom.afiliado.Afiliados;
->>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
+
 
 @Component
 @RequiredArgsConstructor(onConstructor_ = {@Inject})
@@ -35,7 +35,7 @@ public class SampleJob implements Job {
 
     private final InteractionService interactionService;
     private final TransactionalProcessor transactionalProcessor;
-<<<<<<< HEAD
+
     private final SimpleObjects simpleObjects;
 
     @Override
@@ -47,6 +47,7 @@ public class SampleJob implements Job {
     List<SimpleObject> all() {
         return call("sven", simpleObjects::listAll)
                 .orElse(Collections.<SimpleObject>emptyList());
+/*
 =======
     private final Afiliados afiliados;
 
@@ -60,6 +61,7 @@ public class SampleJob implements Job {
         return call("sven", afiliados::listAll)
                 .orElse(Collections.<Afiliado>emptyList());
 >>>>>>> 1dd8206bec68dfc87ae023a152f9dd2feae3f759
+*/
     }
 
     private <T> Optional<T> call(
